@@ -1,0 +1,73 @@
+{
+  "info": {
+    "name": "EN.gestion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Transferencias",
+      "item": [
+        {
+          "name": "Crear transferencia",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/transferencias",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "transferencias"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monto\": 15000.50,\n  \"fecha\": \"2026-04-25\",\n  \"origen\": \"Banco Nación\",\n  \"referencia\": \"REF-001\",\n  \"cliente\": \"Juan García\",\n  \"observaciones\": \"Pago factura abril\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar transferencias",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/transferencias",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "transferencias"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener transferencia por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/transferencias/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "transferencias", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
