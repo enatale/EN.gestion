@@ -37,9 +37,9 @@ public class Transferencia {
     @Column(unique = true)
     private String referencia;
 
-    @NotBlank
-    @Column(nullable = false)
-    private String cliente;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "cliente_id", nullable = false)
+    private Cliente cliente;
 
     @Column(columnDefinition = "TEXT")
     private String observaciones;

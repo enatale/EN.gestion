@@ -25,8 +25,8 @@ public class TransferenciaRequestDTO {
 
     private String referencia;
 
-    @NotBlank
-    private String cliente;
+    @NotNull
+    private Long clienteId;
 
     private String observaciones;
 }

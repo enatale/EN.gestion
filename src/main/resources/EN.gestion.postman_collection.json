@@ -12,6 +12,64 @@
   ],
   "item": [
     {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "Crear cliente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "clientes"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"CLI-001\",\n  \"nombre\": \"Juan García\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar clientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "clientes"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener cliente por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "clientes", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Transferencias",
       "item": [
         {
@@ -31,7 +89,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"monto\": 15000.50,\n  \"fecha\": \"2026-04-25\",\n  \"origen\": \"Banco Nación\",\n  \"referencia\": \"REF-001\",\n  \"cliente\": \"Juan García\",\n  \"observaciones\": \"Pago factura abril\"\n}",
+              "raw": "{\n  \"monto\": 15000.50,\n  \"fecha\": \"2026-04-25\",\n  \"origen\": \"Banco Nación\",\n  \"referencia\": \"REF-001\",\n  \"clienteId\": 1,\n  \"observaciones\": \"Pago factura abril\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
