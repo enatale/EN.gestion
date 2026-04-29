@@ -27,7 +27,7 @@ PostgreSQL must be running locally with:
 - User: `postgres`
 - Port: `5432`
 
-The app runs on `http://localhost:8080`. A Postman collection is at `postman/collections/EN.gestion.postman_collection.json`.
+The app runs on `http://localhost:8080`. A Bruno collection is at `bruno/` (open the folder in Bruno, use the `local` environment).
 
 ## Architecture
 
