@@ -1,0 +1,28 @@
+meta {
+  name: Confirmar Comprobante
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/comprobantes/1/confirmar
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "clienteId": 1,
+    "monto": null,
+    "fecha": null,
+    "origen": null,
+    "referencia": null,
+    "cuentaOrigen": null,
+    "observaciones": null,
+    "actualizarCuenta": null
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:8080
+}

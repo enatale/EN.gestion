@@ -47,8 +47,22 @@ Controller → Service → Repository → Entity
 
 `EstadoTransferencia` enum: `PENDIENTE` → `CONFIRMADA` | `RECHAZADA`. New transfers default to `PENDIENTE`.
 
+### Comprobantes module
+
+`POST /api/comprobantes/leer` — sends image/PDF to Gemini, persists a `ComprobanteLeido` with estado `PENDIENTE`, and returns it with a client suggestion from memory.
+
+`GET /api/comprobantes?estado=PENDIENTE` — lists comprobantes, optionally filtered by estado.
+
+`POST /api/comprobantes/{id}/confirmar` — body: `{ clienteId, monto?, fecha?, actualizarCuenta? }`. Creates a `Transferencia` and links it to the comprobante. If `cuentaOrigen` is already mapped to a different client in `CuentaCliente`, returns HTTP 409 unless `actualizarCuenta: true/false` is explicitly sent.
+
+`DELETE /api/comprobantes/{id}` — marks as `DESCARTADO`.
+
+**Account memory**: `CuentaCliente` maps `cuentaOrigen` (CBU/CVU) → `Cliente`. Populated automatically on confirm. One client can have many accounts; each account maps to one client.
+
 ## Current development phase
 
 **Phase 1 (complete):** CRUD básico de transferencias via `POST/GET /api/transferencias`.
+
+**Phase 1.5 (complete):** Lectura de comprobantes via Gemini con persistencia y memoria de cuentas.
 
 **Phase 2 (pending):** JWT authentication and role-based access control. `SecurityConfig` intentionally disables all security for now — do not add auth logic until Phase 2 is started.

@@ -1,11 +1,11 @@
 meta {
-  name: Listar Transferencias
+  name: Listar Comprobantes
   type: http
   seq: 2
 }
 
 get {
-  url: {{baseUrl}}/api/transferencias
+  url: {{baseUrl}}/api/comprobantes?estado=PENDIENTE
   body: none
   auth: none
 }

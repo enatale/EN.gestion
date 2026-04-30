@@ -13,8 +13,9 @@ public class ComprobantesResponseDTO {
 
     private BigDecimal monto;
     private String fecha;           // YYYY-MM-DD
-    private String origen;          // banco o entidad emisora
-    private String referencia;      // número de comprobante/operación
+    private String origen;
+    private String referencia;
+    private String cuentaOrigen;    // CBU, CVU o número de cuenta del ordenante
     private String clienteSugerido; // nombre del ordenante
     private String observaciones;
 }

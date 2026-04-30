@@ -1,11 +1,11 @@
 meta {
-  name: Listar Transferencias
+  name: Descartar Comprobante
   type: http
-  seq: 2
+  seq: 4
 }
 
-get {
-  url: {{baseUrl}}/api/transferencias
+delete {
+  url: {{baseUrl}}/api/comprobantes/1
   body: none
   auth: none
 }
