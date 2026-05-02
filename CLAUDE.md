@@ -31,7 +31,7 @@ The app runs on `http://localhost:8080`. A Bruno collection is at `bruno/` (open
 
 ## Architecture
 
-Standard Spring Boot 3.5 / Java 17 layered architecture:
+Standard Spring Boot 3.5 / Java 21 layered architecture:
 
 ```
 Controller → Service → Repository → Entity
@@ -65,4 +65,4 @@ Controller → Service → Repository → Entity
 
 **Phase 1.5 (complete):** Lectura de comprobantes via Gemini con persistencia y memoria de cuentas.
 
-**Phase 2 (pending):** JWT authentication and role-based access control. `SecurityConfig` intentionally disables all security for now — do not add auth logic until Phase 2 is started.
+**Phase 2 (complete):** JWT authentication and role-based access control. `POST /api/auth/login` is public; `POST /api/auth/register` requires `ADMIN`; all other endpoints require a valid JWT. Roles: `ADMIN`, `OPERADOR`. On first startup a seed admin is created (`admin@en.gestion` / `admin1234`). JWT secret is read from `JWT_SECRET` env var (dev default provided). Tokens expire in 24 h.
