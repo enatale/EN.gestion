@@ -7,5 +7,13 @@ meta {
 get {
   url: {{baseUrl}}/api/clientes
   body: none
-  auth: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+vars:pre-request {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBlbi5nZXN0aW9uIiwiaWF0IjoxNzc3NzQwMDQyLCJleHAiOjE3Nzc4MjY0NDJ9.fP2pNUv5_z6CsUqFmS247P1-2d-KD1nF8gaTdQIqXpw
 }

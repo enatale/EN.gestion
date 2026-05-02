@@ -1,11 +1,11 @@
 meta {
-  name: Crear Cliente
+  name: Registrar Usuario
   type: http
-  seq: 1
+  seq: 2
 }
 
 post {
-  url: {{baseUrl}}/api/clientes
+  url: {{baseUrl}}/api/auth/register
   body: json
   auth: bearer
 }
@@ -20,7 +20,8 @@ headers {
 
 body:json {
   {
-    "codigo": "CLI001",
-    "nombre": "Lemos"
+    "email": "operador@en.gestion",
+    "password": "operador1234",
+    "rol": "OPERADOR"
   }
 }
