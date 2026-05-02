@@ -16,7 +16,9 @@ public class TransferenciaResponseDTO {
     private final LocalDate fecha;
     private final String origen;
     private final String referencia;
-    private final String cliente;
+    private final Long clienteId;
+    private final String clienteCodigo;
+    private final String clienteNombre;
     private final String observaciones;
     private final EstadoTransferencia estado;
     private final LocalDateTime creadoEn;
@@ -27,7 +29,9 @@ public class TransferenciaResponseDTO {
         this.fecha = t.getFecha();
         this.origen = t.getOrigen();
         this.referencia = t.getReferencia();
-        this.cliente = t.getCliente();
+        this.clienteId = t.getCliente().getId();
+        this.clienteCodigo = t.getCliente().getCodigo();
+        this.clienteNombre = t.getCliente().getNombre();
         this.observaciones = t.getObservaciones();
         this.estado = t.getEstado();
         this.creadoEn = t.getCreadoEn();

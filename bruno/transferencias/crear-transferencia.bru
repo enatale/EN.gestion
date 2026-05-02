@@ -1,0 +1,26 @@
+meta {
+  name: Crear Transferencia
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/transferencias
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "monto": 1500.00,
+    "fecha": "2026-04-28",
+    "origen": "Banco Nación",
+    "referencia": "REF-001",
+    "clienteId": 1,
+    "observaciones": "Transferencia de ejemplo"
+  }
+}

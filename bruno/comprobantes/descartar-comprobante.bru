@@ -1,0 +1,15 @@
+meta {
+  name: Descartar Comprobante
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/api/comprobantes/1
+  body: none
+  auth: none
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:8080
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Leer Comprobante
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/comprobantes/leer
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  archivo: @file(C:\Users\assus\Desktop\Comprobante de transferencia para probar\WhatsApp Image 2026-04-07 at 13.32.55 1834 pintos.jpeg)
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:8080
+}

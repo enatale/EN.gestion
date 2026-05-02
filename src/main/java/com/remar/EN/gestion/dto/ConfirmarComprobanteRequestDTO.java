@@ -1,6 +1,5 @@
 package com.remar.EN.gestion.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;
@@ -11,22 +10,23 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class TransferenciaRequestDTO {
-
-    @NotNull
-    @Positive
-    private BigDecimal monto;
-
-    @NotNull
-    private LocalDate fecha;
-
-    @NotBlank
-    private String origen;
-
-    private String referencia;
+public class ConfirmarComprobanteRequestDTO {
 
     @NotNull
     private Long clienteId;
 
+    @Positive
+    private BigDecimal monto;
+
+    private LocalDate fecha;
+
+    private String origen;
+
+    private String referencia;
+
+    private String cuentaOrigen;
+
     private String observaciones;
+
+    private Boolean actualizarCuenta;
 }

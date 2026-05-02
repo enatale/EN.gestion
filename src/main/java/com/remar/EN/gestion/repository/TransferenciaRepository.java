@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface TransferenciaRepository extends JpaRepository<Transferencia, Long> {
     List<Transferencia> findByEstado(EstadoTransferencia estado);
-    List<Transferencia> findByClienteContainingIgnoreCase(String cliente);
+    List<Transferencia> findByClienteNombreContainingIgnoreCase(String nombre);
     boolean existsByReferencia(String referencia);
 }
