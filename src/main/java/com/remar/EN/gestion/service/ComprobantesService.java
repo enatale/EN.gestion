@@ -254,6 +254,8 @@ public class ComprobantesService {
     private String prompt() {
         return """
                 Extrae los datos de este comprobante de transferencia.
+                Si el comprobante contiene "BNA+", el origen es Banco Nación
+                
                 Reglas:
                 - monto: número decimal sin símbolo de moneda
                 - fecha: formato YYYY-MM-DD

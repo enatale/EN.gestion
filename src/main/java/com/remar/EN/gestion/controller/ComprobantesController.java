@@ -72,7 +72,8 @@ public class ComprobantesController {
     public ResponseEntity<Map<String, Object>> handleCuentaConflict(CuentaClienteConflictException ex) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of(
                 "error", "La cuenta '" + ex.getCuentaOrigen() + "' ya está asignada al cliente '"
-                        + ex.getClienteActualNombre() + "'. Reenvíe con actualizarCuenta: true para actualizarla, o false para mantenerla.",
+                        + ex.getClienteActualNombre() + "'. Desea actualizar la asignación?" +
+                        "",
                 "clienteActualId", ex.getClienteActualId(),
                 "clienteActualNombre", ex.getClienteActualNombre(),
                 "cuentaOrigen", ex.getCuentaOrigen()
