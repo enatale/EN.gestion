@@ -49,19 +49,22 @@ public class ComprobantesService {
 
     @Transactional
     public ComprobanteResponseDTO leer(MultipartFile archivo) {
-        if (apiKey == null || apiKey.isBlank()) {
-            throw new IllegalStateException("GEMINI_API_KEY no configurada en el servidor");
-        }
-
         byte[] bytes;
         try {
             bytes = archivo.getBytes();
         } catch (IOException e) {
             throw new IllegalArgumentException("No se pudo leer el archivo subido", e);
         }
+        return leerBytes(bytes, resolverMimeType(archivo.getContentType()), archivo.getOriginalFilename());
+    }
+
+    @Transactional
+    public ComprobanteResponseDTO leerBytes(byte[] bytes, String mimeType, String archivoNombre) {
+        if (apiKey == null || apiKey.isBlank()) {
+            throw new IllegalStateException("GEMINI_API_KEY no configurada en el servidor");
+        }
 
         String base64 = Base64.getEncoder().encodeToString(bytes);
-        String mimeType = resolverMimeType(archivo.getContentType());
 
         Map<String, Object> schema = Map.of(
                 "type", "OBJECT",
@@ -112,7 +115,7 @@ public class ComprobantesService {
         comprobante.setCuentaOrigen(gemini.getCuentaOrigen());
         comprobante.setClienteSugeridoTexto(gemini.getClienteSugerido());
         comprobante.setObservaciones(gemini.getObservaciones());
-        comprobante.setArchivoNombre(archivo.getOriginalFilename());
+        comprobante.setArchivoNombre(archivoNombre);
 
         ComprobanteLeido saved = comprobanteLeidoRepository.save(comprobante);
         return toResponseDTO(saved);

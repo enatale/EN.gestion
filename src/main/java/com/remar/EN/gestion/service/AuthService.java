@@ -38,6 +38,7 @@ public class AuthService {
                 .email(dto.getEmail())
                 .password(passwordEncoder.encode(dto.getPassword()))
                 .rol(dto.getRol())
+                .whatsappNumero(dto.getWhatsappNumero())
                 .build();
         repository.save(usuario);
         String token = jwtService.generarToken(usuario);
