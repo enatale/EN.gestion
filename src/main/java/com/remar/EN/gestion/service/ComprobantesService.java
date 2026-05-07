@@ -255,6 +255,10 @@ public class ComprobantesService {
         return """
                 Extrae los datos de este comprobante de transferencia.
                 Si el comprobante contiene "BNA+", el origen es Banco Nación
+
+                Tener en cuenta que mi empresa es "Natale René", mi CUIT 20165151985 o 20-16515198-5.
+                Mi cuenta bancaria es del Banco CREDICOOP. Puedo reibir transferencias del mismo bano,
+                pero asegurate de que este no sea el banco destino.
                 
                 Reglas:
                 - monto: número decimal sin símbolo de moneda
