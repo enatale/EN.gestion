@@ -20,4 +20,7 @@ public class RegisterRequestDTO {
 
     @NotNull
     private Rol rol;
+
+    // Formato internacional sin +, ej: 5491123456789
+    private String whatsappNumero;
 }

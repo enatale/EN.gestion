@@ -34,6 +34,9 @@ public class Usuario implements UserDetails {
     @Column(nullable = false)
     private Rol rol;
 
+    @Column(name = "whatsapp_numero", unique = true)
+    private String whatsappNumero;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_" + rol.name()));
