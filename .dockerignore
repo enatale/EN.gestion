@@ -1,0 +1,10 @@
+build/
+.gradle/
+.idea/
+.vscode/
+*.iml
+.git/
+.github/
+bruno/
+*.md
+HELP.md

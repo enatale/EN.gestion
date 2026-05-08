@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: en-gestion-api
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /swagger-ui/index.html
+    envVars:
+      # --- Supabase Postgres (Direct connection, puerto 5432) ---
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+
+      # --- JPA / Hibernate ---
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+      - key: SPRING_JPA_SHOW_SQL
+        value: "false"
+
+      # --- JWT (Render genera un valor seguro en el primer deploy) ---
+      - key: JWT_SECRET
+        generateValue: true
+
+      # --- Integraciones externas ---
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: WHATSAPP_ACCESS_TOKEN
+        sync: false
+      - key: WHATSAPP_VERIFY_TOKEN
+        sync: false
+
+      # --- CORS: dominios del frontend (Netlify), coma-separados ---
+      - key: APP_CORS_ALLOWED_ORIGINS
+        sync: false
